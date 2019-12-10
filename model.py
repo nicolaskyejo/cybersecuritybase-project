@@ -2,6 +2,7 @@
 
 import sqlite3
 
+
 connection = sqlite3.connect('info.db', check_same_thread=False)
 cursor = connection.cursor()
 
@@ -13,7 +14,6 @@ def user_phonenumber_query(search_string):
     # cursor.execute('SELECT first_name, last_name, phone_number FROM Users WHERE first_name=:firstname',
     #                {'firstname': search_string})
     rows = cursor.fetchall()
-    print(rows)
     return rows
 
 
@@ -30,6 +30,7 @@ cursor.execute('INSERT INTO Users ("first_name", "last_name", "phone_number", "c
                ('Petyr', 'Baelish', '+35896393', 'Vale of Arryn'))
 cursor.execute('INSERT INTO Users ("first_name", "last_name", "phone_number", "current_address") VALUES (?, ?, ?, ?)',
                ('Shadrich', 'The Mad Mouse', '+35809057', 'Vale of Arryn'))
+
 connection.commit()
 
-# connection.close()
+

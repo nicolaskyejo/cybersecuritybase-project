@@ -15,7 +15,9 @@ $
 #### Windows (tested on build 18362)
 Make sure you have git and python 3.6+ installed, if you don't:
 https://git-scm.com/download/win
+and
 https://www.python.org/downloads/windows/
+
 Alternatively, get Python 3 from the Windows store
 
 Open cmd, Powershell or git bash:
@@ -24,9 +26,13 @@ Open cmd, Powershell or git bash:
 git clone https://github.com/nicolaskyejo/cybersecuritybase-project.git
 cd cybersecuritybase-project
 python -m venv venv	
-venv\Scripts\activate.bat
+```
+If using cmd -->``venv\Scripts\activate.bat``,
+If using Powershell -->``venv\Scripts\activate.ps1``,
+If using git bash -->``$ source venv\Scripts\activate``
+```
 pip install -r requirements.txt
-python app_name.py
+python app.py
 ```
 
 #### MacOS (tested on Catalina)

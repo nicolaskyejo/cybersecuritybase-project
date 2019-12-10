@@ -24,5 +24,15 @@ def sql_injection():
     return render_template('form_sql_injection.html', results=results)
 
 
+@app.route('/csrf_in_form', methods=['GET', 'POST'])
+def csrf():
+    pass
+
+
+@app.route('/broken_auth', methods=['GET', 'POST'])
+def broken_auth():
+    pass
+
+
 if __name__ == '__main__':
     app.run(debug=True)

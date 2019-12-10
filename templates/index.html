@@ -14,20 +14,20 @@
     </p>
     <p>
         The web app is divided into five parts, demonstrating some of the flaws documented in
-        OWASP top 10 list.
+        OWASP top 10 <a href="https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf">list</a>.
     </p>
 
     <div class="list-group">
         <a href="{{ url_for('sql_injection') }}" class="list-group-item list-group-item-action">
           1. SQL Injection
         </a>
-        <a href="#" class="list-group-item list-group-item-action">
+        <a href="{{ url_for('csrf') }}" class="list-group-item list-group-item-action">
           2. CSRF
         </a>
         <a href="#" class="list-group-item list-group-item-action">
           3. Sensitive data exposure
         </a>
-        <a href="#" class="list-group-item list-group-item-action">
+        <a href="{{ url_for('broken_auth') }}" class="list-group-item list-group-item-action">
           4. Broken authentication
         </a>
         <a href="#" class="list-group-item list-group-item-action">
