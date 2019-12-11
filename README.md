@@ -9,18 +9,24 @@ Python 3 is usually installed by default, check with
 Python version should be 3.6+
 
 ```
-$
+$ git clone https://github.com/nicolaskyejo/cybersecuritybase-project.git
+$ cd cybersecuritybase-project
+$ sudo apt install python3-venv
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt
+$ python app.py
 ```
 
-#### Windows (tested on build 18362)
-Make sure you have git and python 3.6+ installed, if you don't:
+#### Windows 10 (tested on build 18362)
+Make sure you have git and Python 3.6+ installed, if you don't:
 https://git-scm.com/download/win
 and
 https://www.python.org/downloads/windows/
 
 Alternatively, get Python 3 from the Windows store
 
-Open cmd, Powershell or git bash:
+Open cmd, Powershell, or git bash:
 
 ```
 git clone https://github.com/nicolaskyejo/cybersecuritybase-project.git
@@ -36,12 +42,17 @@ python app.py
 ```
 
 #### MacOS (tested on Catalina)
-If you don't have python3 installed, install [Homebrew](https://github.com/Homebrew/install)
+If you don't have Python 3 installed, install [Homebrew](https://github.com/Homebrew/install)
 first
 
 ```
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 homebrew install python
+git clone https://github.com/nicolaskyejo/cybersecuritybase-project.git
+cd cybersecuritybase-project
+$ source venv/bin/activate
+$ pip install -r requirements.txt
+$ python app.py
 ```
 
 #### Acknowledgements
