@@ -3,12 +3,15 @@
 {% block body %}
     <h4>Please leave feedback in the form below</h4><br><br>
     <div class="col-lg-6">
-        <form action="{{ url_for('csrf') }}" method="POST">
+        <form action="{{ url_for('main_bp.csrf') }}" method="POST">
 {#            CSRF token disabled for showing csrf vulnerability; #}
 {#            <input type="hidden" name="csrf_token"  value="{{ csrf_token() }}">#}
                 <textarea class=form-control name="feedback" rows="4">Write your feedback here</textarea><br>
             <input type="submit" class="btn btn-outline-success">
         </form>
+    </div>
+    <div class="container">
+         <a href="{{ url_for('main_bp.index') }}">Go back to home</a>
     </div>
 {% endblock %}
 

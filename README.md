@@ -15,7 +15,7 @@ $ sudo apt install python3-venv
 $ python3 -m venv venv
 $ source venv/bin/activate
 $ pip install -r requirements.txt
-$ python app.py
+$ python run.py
 ```
 
 #### Windows 10 (tested on build 18362)
@@ -38,7 +38,7 @@ If using Powershell -->``venv\Scripts\activate.ps1``,
 If using git bash -->``$ source venv\Scripts\activate``
 ```
 pip install -r requirements.txt
-python app.py
+python run.py
 ```
 
 #### MacOS (tested on Catalina)
@@ -52,7 +52,7 @@ git clone https://github.com/nicolaskyejo/cybersecuritybase-project.git
 cd cybersecuritybase-project
 $ source venv/bin/activate
 $ pip install -r requirements.txt
-$ python app.py
+$ python run.py
 ```
 
 #### Acknowledgements

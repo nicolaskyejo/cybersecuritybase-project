@@ -5,7 +5,7 @@
     <div class="col-5">
         <p>Simple phone directory, search by first name</p><p>try searching for Jaime</p>
 
-        <form class="form-group" action="{{ url_for('sql_injection') }}" method="POST">
+        <form class="form-group" action="{{ url_for('main_bp.sql_injection') }}" method="POST">
             <div class="input-group">
               <input type="text" class="form-control" name="first name">
               <span class="input-group-btn">
@@ -32,6 +32,8 @@
                 </div>
             {% endif %}
         {% endwith %}
+        <a href="{{ url_for('main_bp.index') }}">Go back to home</a>
     </div>
 </div>
+
 {% endblock %}
