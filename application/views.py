@@ -43,7 +43,7 @@ def broken_auth():
     if user:  # exists
         session.clear()
         session['username'] = username
-        session.permanent = True
+        session.permanent = True    # session is forever unless user logs out, meant to show what not to do
         if session['username'] == 'admin':
             return redirect(url_for('user.index_view'))
         else:
@@ -55,9 +55,18 @@ def broken_auth():
 
 @main_bp.route('/user_lounge', methods=['GET'])
 def lounge():
-    if session['username'] is not None:
-        return render_template('user.html')
-    redirect(url_for('main_bp.broken_auth'))
+    username = session.get('username')
+    if username is not None:
+        return render_template('user.html', username=username)
+    flash('Need to be logged in first')
+    return redirect(url_for('main_bp.broken_auth'))
+
+
+@main_bp.route('/logout', methods=['GET'])
+def logout():
+    session.pop('username')
+    session.clear()
+    return redirect(url_for('main_bp.broken_auth'))
 
 
 @main_bp.route('/xss', methods=['GET', 'POST'])

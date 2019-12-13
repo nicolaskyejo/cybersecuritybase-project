@@ -5,7 +5,7 @@
         {% if posts %}
             <ol>
                 {% for post in posts %}
-{#                    The safe filter unescapes html, so this is the "vulnerability"  #}
+{#                    The safe filter unescapes html, so this is the "vulnerability" for this part #}
 {#                    Flask escapes html by default so the fix is --> {{ post.comment }}  #}
                     <li>{{ post.comment | safe }}</li>
                 {% endfor %}
@@ -14,13 +14,13 @@
 
         Add a comment
         <form action="{{ url_for('main_bp.xss') }}" method="POST">
-            <textarea class="form-control" name="comment"></textarea>
+            <textarea class="form-control" name="comment"></textarea><br>
             <button class="btn btn-outline-success" type="submit">Post</button>
         </form>
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                    <p class="text-info">{{ message }}</p>
+                    <p class="text-warning">{{ message }}</p>
                 {% endfor %}
             {% endif %}
         {% endwith %}

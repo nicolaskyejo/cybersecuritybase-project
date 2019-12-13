@@ -51,8 +51,6 @@ homebrew install python
 
 The clone the project
 ```
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-homebrew install python
 git clone https://github.com/nicolaskyejo/cybersecuritybase-project.git
 cd cybersecuritybase-project
 $ source venv/bin/activate
