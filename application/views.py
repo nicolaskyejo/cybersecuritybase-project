@@ -1,4 +1,5 @@
-from .model import user_phonenumber_query, User
+from .model import user_phonenumber_query, User, Comments
+from application import db
 from flask import Blueprint, render_template, request, flash, url_for, redirect, session
 
 
@@ -40,7 +41,9 @@ def broken_auth():
     passwd = request.form.get('password')
     user = User.query.filter_by(username=username, password=passwd).first()
     if user:  # exists
+        session.clear()
         session['username'] = username
+        session.permanent = True
         if session['username'] == 'admin':
             return redirect(url_for('user.index_view'))
         else:
@@ -59,4 +62,16 @@ def lounge():
 
 @main_bp.route('/xss', methods=['GET', 'POST'])
 def xss():
-    return render_template('xss.html')
+    if request.method == 'GET':
+        comments = Comments.query.all()
+        return render_template('xss.html', posts=comments)
+
+    comment = request.form.get('comment')
+    if comment == '':
+        flash('Empty comment')
+        return render_template('xss.html')
+    db.session.add(Comments(comment=comment))
+    db.session.commit()
+    comments = Comments.query.all()
+    return render_template('xss.html', posts=comments)
+

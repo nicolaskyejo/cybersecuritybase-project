@@ -20,6 +20,13 @@ class User(db.Model):
         return f'<User {self.username}'
 
 
+class Comments(db.Model):
+    __tablename__ = 'posts'
+
+    id = db.Column(db.Integer, primary_key=True)
+    comment = db.Column(db.Text, unique=False, nullable=False)
+
+
 def user_phonenumber_query(search_string):
     # The SQL injection happens in this sql query, try --> jaime" or "1" ="1
     cursor.execute(f'SELECT first_name, last_name, phone_number FROM Users WHERE first_name="{search_string}"')
