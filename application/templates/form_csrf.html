@@ -1,8 +1,8 @@
 {% extends 'index.html' %}
 {% block title %}Form without CSRF protection{% endblock %}
 {% block body %}
-    <h4>Please leave feedback in the form below</h4><br><br>
     <div class="col-lg-6">
+    <h4>Please leave feedback in the form below</h4><br><br>
         <form action="{{ url_for('main_bp.csrf') }}" method="POST">
 {#            CSRF token disabled for showing csrf vulnerability; #}
 {#            <input type="hidden" name="csrf_token"  value="{{ csrf_token() }}">#}

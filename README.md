@@ -2,11 +2,16 @@
 Project with the goal of creating a vulnerable web application
 and provide fixes for it.
 
+### Requirements
+* Python 3.6 or above
+
+
 ### Installation instructions:
 #### Ubuntu (tested on 18.04.3)
 Python 3 is usually installed by default, check with
  ``$ python3 --version``,
-Python version should be 3.6+
+Python version should be 3.6 or above. If the version is not correct, follow the instructions
+for your linux distro for installing the newest version of Python.
 
 ```
 $ git clone https://github.com/nicolaskyejo/cybersecuritybase-project.git

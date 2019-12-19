@@ -1,11 +1,36 @@
 {% extends 'index.html' %}
 {% block title %}User Page{% endblock %}
 {% block body %}
-    <h6>User page, to be filled later</h6>
-    Logged in as <span style="color: #3a87ad">{{ username }}</span>
-    <form action="{{ url_for('main_bp.logout') }}">
-          <button class="btn btn-danger disabled" type="submit">Logout</button>
-    </form>
-     <a href="{{ url_for('main_bp.index') }}">Go back to home</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          Logged in as &nbsp;<span style="color: greenyellow">{{ username }}</span>&nbsp;
+          <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+
+            </ul>
+            <form action="{{ url_for('main_bp.logout') }}">
+                <button class="btn btn-danger" type="submit">Logout</button>
+            </form>
+          </div>
+    </nav>
+    <div class="container">
+        Educational video<br><br>
+        <div id="ytplayer"></div><br><br>
+        <a href="{{ url_for('main_bp.index') }}">Go back to home</a>
+    </div>
+<script>
+  let tag = document.createElement('script');
+  tag.src = "http://www.youtube.com/player_api";
+  let firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  let player;
+  function onYouTubePlayerAPIReady() {
+    player = new YT.Player('ytplayer', {
+      height: '360',
+      width: '640',
+      videoId: 'TWEXCYQKyDc',
+      autoplay: '0'
+    });}
+</script>
 
 {% endblock %}

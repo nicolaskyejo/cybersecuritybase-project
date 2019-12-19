@@ -35,7 +35,7 @@ def create_app():
         from application.model import db_init, User, Comments
         app.register_blueprint(main_bp)
 
-        # admin.add_views(MyModelView(User, db.session), MyModelView(Comments, db.session))
+        # admin.add_views(MyModelView(User, db.session), MyModelView(Comments, db.session))  #  For the custom model above
         admin.add_views(ModelView(User, db.session), ModelView(Comments, db.session))
         db.drop_all()
         db_init()  # initialize sql injection db for part 1
