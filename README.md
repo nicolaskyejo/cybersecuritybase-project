@@ -52,7 +52,7 @@ If you don't have Python 3.6 or above installed, install [Homebrew](https://gith
 first
 ```
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-homebrew install python
+$ homebrew install python
 ```
 
 The clone the project
