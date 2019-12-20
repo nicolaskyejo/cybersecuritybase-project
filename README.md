@@ -1,6 +1,7 @@
 # cybersecuritybase-project
 Project with the goal of creating a vulnerable web application
-and provide fixes for it.
+and provide [fixes](https://github.com/nicolaskyejo/cybersecuritybase-project/blob/master/flaws_and_fixes.md)
+for it.
 
 ### Requirements
 * Python 3.6 or above
@@ -47,7 +48,7 @@ python run.py
 ```
 
 #### MacOS (tested on Catalina)
-If you don't have Python 3 installed, install [Homebrew](https://github.com/Homebrew/install)
+If you don't have Python 3.6 or above installed, install [Homebrew](https://github.com/Homebrew/install)
 first
 ```
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

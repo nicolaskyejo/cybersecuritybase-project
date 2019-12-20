@@ -10,7 +10,7 @@ To test that injection works try ``jaime" or "1" ="1``
 The fix is, of course, to validate or sanitize user input;
 This can be done by parameterized queries. By 'parameterizing' a query,
 extra or invalid input is stripped away.
-An example fix is commented in the code (file 'model.py').
+An example fix is commented in the code (file ['model.py'](https://github.com/nicolaskyejo/cybersecuritybase-project/blob/51c838ccc99953e6b26dff14b59c4fc4dc4e8f39/application/model.py#L33-L35)).
 
 
 #### Cross-Site Request Forgery
@@ -26,7 +26,8 @@ place of a user.
 In the Flask web framework,
 to use CSRF tokens we use extensions such as 'Flask-WTF'
 to help us easily implement them. The fix is shown in the code
-in files '\_\_init__.py' and 'form_csrf.html' commented.
+in files ['\_\_init\_\_.py'](https://github.com/nicolaskyejo/cybersecuritybase-project/blob/51c838ccc99953e6b26dff14b59c4fc4dc4e8f39/application/__init__.py#L8) (line 8 and 31)
+and ['form_csrf.html'](https://github.com/nicolaskyejo/cybersecuritybase-project/blob/51c838ccc99953e6b26dff14b59c4fc4dc4e8f39/application/templates/form_csrf.html#L7-L8) commented.
 
 
 #### Cross-Site Scripting
@@ -47,7 +48,7 @@ escapes HTML, therefore, this vulnerability is not there
 by default, it has to be enabled. In our scenario,
 we could imagine a forgetful dev testing something
 and forgetting to revert to the default behavior.
-The fix is commented in the file 'xss.html'.
+The fix is commented in the file ['xss.html'](https://github.com/nicolaskyejo/cybersecuritybase-project/blob/51c838ccc99953e6b26dff14b59c4fc4dc4e8f39/application/templates/xss.html#L8-L9).
 
 
 #### Broken Authentication
@@ -62,7 +63,7 @@ the most common passwords dictionary).
 
 ##### How to fix it:
 Salt and hash passwords; Even better,
-use a well-known library or module (for example Bcrypt)
+use a well-known library or module (for example [Bcrypt](https://en.wikipedia.org/wiki/Bcrypt))
 instead of implementing your own salt & hash scheme.
 The other fix is to force a minimum password length
 (for now the recommended is >= 6);
@@ -72,18 +73,19 @@ additional info https://imgs.xkcd.com/comics/password_strength.png
 
 ##### Description of flaw:
 By using a crawler or just manually investigating you'll notice the
-endpoint '/admin'; By going to that URL you'll notice that you got
+endpoint _/admin_; By going to that URL you'll notice that you got
 in without providing any credentials whatsoever.
 In the admin panel you can do a lot of interesting stuff.
 The web application does not check your credentials when
 you go to that URL and this is an access control vulnerability
-as there exists a login form that was bypassed.
+as the application did not check authorization.
 
 ##### How to fix it:
 The fix for broken access control is to check whether whoever is
 trying to access a sensitive resource is authorized to do so.
 In the code, the fix is in the file '\_\_init\_\_.py'
-line 11 and line 38
+[line 11](https://github.com/nicolaskyejo/cybersecuritybase-project/blob/51c838ccc99953e6b26dff14b59c4fc4dc4e8f39/application/__init__.py#L11-L18)
+and [line 38](https://github.com/nicolaskyejo/cybersecuritybase-project/blob/51c838ccc99953e6b26dff14b59c4fc4dc4e8f39/application/__init__.py#L38)
 (which means line 39 must be commented if you want to try the fix it out).
 It should be noted while this fix works,
 a better solution is to completely block the view and
@@ -91,13 +93,14 @@ log some info about the event (more info at https://flask-admin.readthedocs.io/e
 
 #### Other small stuff
 ##### Problem:
-The web application has permanent sessions unless the user logs out
+The web application has permanent sessions.
 ##### Fix:
-Implement a session lifetime; The more sensitive the web application,
+Implement a [session lifetime](https://github.com/nicolaskyejo/cybersecuritybase-project/blob/51c838ccc99953e6b26dff14b59c4fc4dc4e8f39/application/__init__.py#L25);
+The more sensitive the web application,
 the less the web application session time.
 
 ##### Problem:
-Embedding security keys in code
+[Embedding security keys](https://github.com/nicolaskyejo/cybersecuritybase-project/blob/51c838ccc99953e6b26dff14b59c4fc4dc4e8f39/application/__init__.py#L23) in code.
 ##### Fix:
 A better way to import security keys is by using environment variables
 or from a file outside the git directory.
