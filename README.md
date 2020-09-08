@@ -3,11 +3,17 @@ Project with the goal of creating a vulnerable web application
 and provide [fixes](https://github.com/nicolaskyejo/cybersecuritybase-project/blob/master/flaws_and_fixes.md)
 for it.
 
-### Requirements
+## Requirements
 * Python 3.6 or above
 
 
-### Installation instructions:
+## Installation instructions:
+
+### Using Docker
+```docker run -it -p 5000:5000 nicolaskyejo/vulnerableapp```
+
+### Without Docker
+
 #### Ubuntu (tested on 18.04.3)
 Python 3 is usually installed by default, check with
  ``$ python3 --version``,
